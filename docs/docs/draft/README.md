@@ -4,6 +4,8 @@ title: Documentation
 
 # Welcome to Kuma
 
+[URL test](./#universal-mode)
+
 ::: tip
 **Protip**: Use `#kumamesh` on Twitter to chat about Kuma.
 :::

@@ -125,9 +125,21 @@ module.exports = {
   // plugin settings, build process, etc.
   markdown: {
     lineNumbers: true,
+    linkify: true,
     extendMarkdown: md => {
+      const mdInclude = require("markdown-it-include");
+      const mdForInline = require("markdown-it-for-inline");
       // include files in markdown
-      md.use(require("markdown-it-include"), "./docs/.partials/");
+      md.use(mdInclude, "./docs/.partials/");
+      // replace version placeholders in doc URLs
+      md.use(mdForInline, "link_version_replace", "link_open", function (tokens, idx) {
+        if ((tokens[idx + 2].type !== 'link_close') || 
+            (tokens[idx + 1].type !== 'text')) {
+          return;
+        }
+        // Do replacement
+        tokens[idx + 1].content = tokens[idx + 1].content.replace(/DRAFT/g, "bar");
+      });
     }
   },
   plugins: {
