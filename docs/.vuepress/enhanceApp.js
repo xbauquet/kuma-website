@@ -35,4 +35,22 @@ export default ({
       }
     }
   })
+
+  /**
+   * find the version in the URI
+   * and push it to the route as a param so
+   * that we can access it later.
+   */
+  router.beforeEach((to, from, next) => {
+    const query = /(\d+\.)(\d+\.)?(\d+\.)(\d)/gm;
+    const pathMatch = to.path.match(query);
+    const match = pathMatch ? pathMatch[0] : null;
+
+    if (!to.params.version) {
+      to.params.version = match;
+      next();
+    } else {
+      next();
+    }
+  });
 }
