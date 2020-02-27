@@ -61,6 +61,10 @@ When following the installation instructions, `kuma-injector` will be automatica
 <img src="/images/docs/0.2.0/diagram-08.jpg" alt="" style="width: 500px; padding-top: 20px; padding-bottom: 10px;"/>
 </center>
 
+ When deploying in Kubernetes, every Pod must be a part of at least one Service. It is necessary for:
+* to give a `Pod` (and its `Dataplane`) the correct identity in the `Mesh` (which is `spiffe://<mesh name>/<service name>`)
+* to ensure that Kuma policies can be applied to that `Pod` (and its `Dataplane`). Notice that in [Kuma polices](/docs/docs/draft/policies/README.md) we treat `service` tag as mandatory in majority of situations
+
 ::: tip
 **Full CRD support**: When using Kuma in Kubernetes mode you can create [Policies](../../policies/introduction) with Kuma's CRDs applied via `kubectl`.
 :::
