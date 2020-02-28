@@ -7,13 +7,15 @@ pageClass: is-home
 # page meta
 meta:
   - name: keywords
-    content: service mesh microservices open-source
+    content: servicemesh service-mesh service mesh kuma microservices micro-services micro services open-source opensource open source traffic security policy tracing logging permissions gateway kubernetes k8s cncf
+  - name: description
+    content: Kuma is the open-source control plane for reliable service connectivity. Built on top of Envoy, Kuma delivers a modern Service Mesh on any platform, with high performance and ease of use.
 
 # custom page data
 testimonialPortraitSrc: /images/luca-maraschi-cropped@2x.png
 testimonialPortraitAlt: Portrait photo of Luca Maraschi
 showTestimonial: true # change this to `true` if you want to display the testimonial
-showNews: false # change this to `true` if you want to display the news bar
+showNews: true # change this to `true` if you want to display the news bar
 startText: Get Started
 startUrl: /install/
 whyText: Why Kuma?
@@ -22,7 +24,7 @@ whyUrl: /docs/latest/overview/why-kuma/
 
 ::: slot news
 
-Join us on Zoom February 25 at 5PM PST for our next Kuma Online Meetup! [Register Now!](https://zoom.us/meeting/register/uJUrc-ygqTgsdRJzMWnV4LVb7-RkEFRnlg)
+Kuma 0.4 has been released with L7 tracing + Grafana dashboards: [Install 0.4.0](/install)
 
 :::
 
