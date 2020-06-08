@@ -18,7 +18,12 @@ export default new Vuex.Store({
     selectedInstallVersion: latestRelease,
     installMethods: installMethods,
     requestADemoEndpoint: 'https://script.google.com/macros/s/AKfycbwiFfaiSK6JqdNqZLAt5PRayPV43x7qw1ZAM_-sFSDg6IT44d4/exec',
-    newsletterSignupEndpoint: 'https://script.google.com/macros/s/AKfycbx9xikTdHNrrnHiqxNX3ecVkTJYzPmKemrz2OMr6SaOXT7FYaiM/exec'
+    newsletterSignupEndpoint: 'https://script.google.com/macros/s/AKfycbx9xikTdHNrrnHiqxNX3ecVkTJYzPmKemrz2OMr6SaOXT7FYaiM/exec',
+    newsletterPardotEndpoint: 'https://go.pardot.com/l/392112/2019-09-03/bjz6yv',
+    newsletterPardotEndpointDev: 'https://go.pardot.com/l/392112/2020-01-14/bkwzrx',
+    communityCallEndpoint: 'https://go.pardot.com/l/392112/2020-02-28/bl766m',
+    communityCallAgendaUrl: 'https://tny.sh/NXs6EVO',
+    communityCallInvite: 'https://calendar.google.com/calendar?cid=a29uZ2hxLmNvbV8xbWE5NnNzZGdnZmg5ZnJyY3M5N2VwdTM4b0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t'
   },
 
   getters: {
@@ -29,6 +34,11 @@ export default new Vuex.Store({
     getSelectedInstallVersion: (state) => state.selectedInstallVersion,
     getRequestADemoEndpoint: (state) => state.requestADemoEndpoint,
     getNewsletterSignupEndpoint: (state) => state.newsletterSignupEndpoint,
+    getNewsletterPardotEndpoint: (state) => state.newsletterPardotEndpoint,
+    getNewsletterPardotEndpointDev: (state) => state.newsletterPardotEndpointDev,
+    getCommunityCallSignupEndpoint: (state) => state.communityCallEndpoint,
+    getCommunityCallAgendaUrl: (state) => state.communityCallAgendaUrl,
+    getCommunityCallInvite: (state) => state.communityCallInvite,
     releasesAsRouterLinks: (state) => {
       return state.releases.map( tag => ({
         text: tag === state.latestRelease ? `${tag} (latest)` : tag,

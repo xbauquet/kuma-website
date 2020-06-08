@@ -1,10 +1,11 @@
-// 
+//
 // Homepage
-// 
+//
 
 $home-feature-icon-bottom-spacing: 1rem;
 
 .page-container--home {
+  position: relative;
 
   // hide the header anchor links
   .header-anchor {
@@ -16,15 +17,37 @@ $home-feature-icon-bottom-spacing: 1rem;
     display: none !important;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     border: 0;
   }
 
   // Containers
 
   .inner {
-    overflow: hidden;
+    // overflow: hidden;
   }
+}
+
+// Masthead wave pattern
+#page-masthead-waves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 1138px;
+  z-index: 0;
+  transform:
+    translateX(5vw)
+    translateY(-200px);
+}
+
+#page-masthead-waves-wrap {
+  
 }
 
 // Helpers
@@ -32,8 +55,11 @@ $home-feature-icon-bottom-spacing: 1rem;
 .section-header {
   text-align: center;
 
-  h2, h3, h4, h5, h6 {
-
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     &:first-of-type {
       margin-top: 0;
     }
@@ -41,12 +67,13 @@ $home-feature-icon-bottom-spacing: 1rem;
 }
 
 .alt-title {
-  
-  &, > * {
+  &,
+  > * {
     color: $navy;
     font-family: $base-font-family;
-    font-weight: normal;
-    font-size: 2rem;
+    // font-weight: normal;
+    // font-size: 2rem;
+    font-size: 1.875rem;
   }
 }
 
@@ -54,9 +81,17 @@ $home-feature-icon-bottom-spacing: 1rem;
 
 .page-masthead-wrap {
   @include page-section;
-  @include gradient-container;
+  // @include gradient-container;
+  @include gradient-container-alt;
+  overflow: hidden;
+
+  // this places the waves properly
+  position: relative;
+  padding-bottom: 18rem;
 
   .inner {
+    position: relative;
+    z-index: 1;
     padding-left: 0;
     padding-right: 0;
   }
@@ -72,7 +107,21 @@ $home-feature-icon-bottom-spacing: 1rem;
 }
 
 .page-masthead {
+  $i: $pale-blue;
+  position: relative;
+  background-color: $i;
+  box-shadow: 0 0 80px 85px $i;
+  border-radius: 20px;
 
+  &:before {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    display: block;
+    content: "";
+    background-color: inherit;
+    transform: translateY(-200px);
+  }
 }
 
 .page-masthead__actions {
@@ -89,6 +138,10 @@ $home-feature-icon-bottom-spacing: 1rem;
   text-align: center;
 }
 
+.page-masthead__header {
+  
+}
+
 // Product features
 
 .product-features {
@@ -97,9 +150,9 @@ $home-feature-icon-bottom-spacing: 1rem;
 }
 
 .product-features__item {
-  
   img {
     margin: 0 auto $home-feature-icon-bottom-spacing auto;
+    width: 100%;
     max-width: 18rem;
   }
 
@@ -108,31 +161,27 @@ $home-feature-icon-bottom-spacing: 1rem;
     padding: 0;
   }
 
-  p {
-    margin: 0;
-    padding: 0;
+  h3 {
+    font-size: 1.1875rem;
   }
 
   // individual content blocks
 
   &.content__feature-block-content-1 {
-
     img {
-      max-width: 13.875rem;
+      // max-width: 13.875rem;
     }
   }
 
   &.content__feature-block-content-2 {
-
     img {
-      max-width: 14rem;
+      // max-width: 14rem;
     }
   }
 
   &.content__feature-block-content-3 {
-
     img {
-      max-width: 14.625rem;
+      // max-width: 14.625rem;
     }
   }
 }
@@ -142,7 +191,8 @@ $home-feature-icon-bottom-spacing: 1rem;
 .testimonial-wrap {
   // background-color: $color-16;
   @include page-section;
-  padding-top: 0;
+  // padding-top: 0;
+  margin-bottom: 2.9063rem;
 
   a:not(.btn) {
     color: $color-5;
@@ -158,9 +208,10 @@ $home-feature-icon-bottom-spacing: 1rem;
   max-width: 60rem;
   margin: 0 auto;
   text-align: center;
-  
+
   // resets
-  blockquote, cite {
+  blockquote,
+  cite {
     padding: 0;
     margin: 0;
     border: 0;
@@ -172,23 +223,28 @@ $home-feature-icon-bottom-spacing: 1rem;
 .content__testimonial-content {
   border: 0;
   // font-size: 1.438rem;
-  font-size: 1.2rem;
-  
+  // font-size: 1.1875rem;
+  font-size: 1.3125rem;
+  max-width: 41.375rem;
+  margin: 0 auto;
+
   > p {
     @include quotify;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       display: inline-block;
     }
   }
 }
 
 .testimonial__portrait {
+  $i: 82px; 
   border-radius: 100%;
   overflow: hidden;
   margin-right: 1.25rem;
-  width: 5rem;
-  height: 5rem;
+  width: $i;
+  height: $i;
 
   img {
     @include img-full;
@@ -216,43 +272,316 @@ $home-feature-icon-bottom-spacing: 1rem;
 .content__testimonial-author-info {
   display: flex;
   align-items: center;
+  color: $pale-blue-2;
 
-  &:before {
+  // &:before {
+  //   display: block;
+  //   content: "";
+  //   background-color: $color-8;
+  //   width: 8px;
+  //   height: 8px;
+  //   transform: rotate(45deg);
+  //   margin-right: 10px;
+  // }
+}
+
+// Feature focuses
+
+.feature-focus {
+  
+  > .inner {
+    padding: 4rem 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
     display: block;
-    content: "";
-    background-color: $color-8;
-    width: 8px;
-    height: 8px;
-    transform: rotate(45deg);
-    margin-right: 10px;
+    margin: 0 auto;
   }
 }
 
-// Steps
+.feature-focus__content {
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $navy;
+
+    &:first-of-type {
+      font-size: 1.625rem;
+      margin-top: 0;
+      padding-top: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0 0 0 1rem;
+    padding: 0;
+
+    li {
+      position: relative;
+
+      &:not(:last-of-type) {
+        margin-bottom: 1rem;
+      }
+    }
+    
+    li:before {
+      content: "■ ";
+      color: $color-4;
+      margin: 0 .5rem 0 0;
+      line-height: 0;
+    }
+  }
+}
+
+.feature-focus__diagram {
+
+}
+
+.feature-focus-1-wrap {
+
+  img {
+    max-width: 28.375rem;
+  }
+}
+
+.feature-focus-2-wrap {
+
+  img {
+    max-width: 18.75rem;
+    // max-width: 27.3125rem;
+  }
+}
+
+.feature-focus-3-wrap {
+
+  img {
+    max-width: 18.75rem;
+  }
+}
+
+// Steps -- new, uses Kongponents KTabs
+
+.feature-focus__tabs {
+  
+  .k-tabs {
+
+    ul {
+      border-bottom: 0 !important;
+      margin-bottom: 2rem !important;
+
+      .tab-item {
+        padding: 0;
+        border: 2px solid transparent;
+        border-radius: 21px;
+
+        &:after {
+          display: none !important;
+        }
+
+        &:focus {
+          outline: none;
+          // outline: 1px solid #eee;
+        }
+
+        &:hover, &:active {
+          
+          .tab-link {
+            color: $color-9 !important;
+          }
+        }
+
+        &.active {
+          border-color: $color-10;
+
+          .tab-link {
+            color: $color-9 !important;
+          }
+        }
+      }
+
+      .tab-link.tab-link {
+        height: 16px;
+        padding: 0 1.1875rem;
+        line-height: 1;
+        font-size: 0.9rem;
+        color: $color-11;
+        text-align: center;
+      }
+    }
+
+    .tab-container {
+
+      a {
+        text-decoration: underline;
+      }
+
+      div[class*="language"] {
+        background-color: $color-9;
+        border: 0;
+        outline: 0;
+        color: #fff;
+      }
+
+      .line-numbers-wrapper,
+      div[class*="language-"].line-numbers-mode:after {
+        display: none;
+      }
+
+      div[class*="language-"].line-numbers-mode pre {
+        padding-left: 1em;
+      }
+
+      code[class*="language-"],
+      pre[class*="language-"] {
+        color: #fff;
+        border: 0;
+      }
+
+      .token.comment {
+        font-style: normal;
+        color: $color-12;
+      }
+
+      .token:not(.comment) {
+        color: #fff;
+      }
+    }
+
+    @media screen and (min-width: 1220px) {
+      .tab-link.tab-link {
+        font-size: 1.0625rem !important;
+      }
+    }
+
+    @media screen and (max-width: 1023px) {
+      ul {
+        justify-content: center;
+      }
+    }
+
+    @media screen and (max-width: 580px) {
+      ul {
+        display: block !important;
+      }
+    }
+  }
+}
+
+.feature-focus__tabs {
+
+  .feature-focus__content ul li:before {
+    color: $color-13;
+  }
+}
+
+// Steps (old -- currently inactive)
 
 .steps-wrap {
   @include page-section;
-  background-color: $color-6;
   color: #fff;
-  
-}
+  background-color: $gray-7;
+  padding-top: 0;
+  padding-bottom: 0;
 
-.steps-wrap--slim {
-  padding: 1.8rem 0;
-}
+  // the tabs themselves
+  div[id*="tab-"].section {
+    background-color: $color-6;
+    padding: 1.8rem 0;
+  }
 
-.steps-items {
-  overflow: visible !important;
+  // Tinytabs overrides
+  .tinytabs {
+    .tabs {
+      margin-bottom: 0;
+    }
+
+    .tab {
+      position: relative;
+      min-width: 9.25rem;
+      height: 8.5rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: none;
+      border-radius: 5px 5px 0 0;
+      text-align: center;
+      font-size: 1.188rem;
+      line-height: 1;
+      padding: 1.4rem 1.625rem;
+      // transition: background 150ms ease-in-out;
+
+      > h2,
+      > h3,
+      > h4,
+      > h5,
+      > h6 {
+        position: relative;
+      }
+
+      img {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 60px;
+        height: auto;
+        // transition: opacity 150ms ease-in-out;
+      }
+
+      // active tab state
+      &.sel {
+        background-color: $color-6;
+
+        img.tab-icon:not(.tab-icon__active) {
+          opacity: 0;
+        }
+
+        img.tab-icon__active {
+          opacity: 1;
+        }
+      }
+
+      // inactive tab state
+      &:not(.sel) {
+        img.tab-icon:not(.tab-icon__active) {
+          opacity: 1;
+        }
+
+        img.tab-icon__active {
+          opacity: 0;
+        }
+      }
+
+      // hover tab state
+      &:hover:not(.sel) {
+        img.tab-icon:not(.tab-icon__active) {
+          opacity: 0;
+        }
+
+        img.tab-icon__active {
+          opacity: 1;
+        }
+      }
+    }
+  }
 
   .section-header {
     margin-bottom: 4rem;
   }
 
   // code blocks
-  div[class*="language"], 
+  div[class*="language"],
   div[class*="language-"] {
     // background-color: darken($color-6, 8);
-    background-color: rgba(#000, .4) !important;
+    background-color: rgba(#000, 0.4) !important;
   }
 
   // hide the line numbers on code blocks
@@ -261,27 +590,46 @@ $home-feature-icon-bottom-spacing: 1rem;
     display: none !important;
   }
 
-  .line-numbers-mode pre {
+  pre,
+  pre[class*="language-"] {
     padding: 1rem !important;
-    // making these code blocks wrap so that they
-    // more responsive
     white-space: pre-wrap !important;
-    // @include scrollbar-h;
   }
 
-  a:not(.btn) {
+  code,
+  code[class*="language-"] {
+    word-break: break-word !important;
+  }
+
+  a:not(.btn):not(.tab) {
     color: $green-base;
 
-    &:hover { 
+    &:hover {
       color: #fff;
       text-decoration: underline;
     }
   }
-    
+}
+
+.steps-wrap-pre-header {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+  color: #fff;
+  background-color: $gray-7;
+
+  .content__tabs-section-title h2 {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 500;
+  }
+}
+
+.steps-wrap--slim {
+  // padding: 1.8rem 0;
 }
 
 .steps-items__header {
-  
 }
 
 .steps-items__content {
@@ -295,7 +643,7 @@ $home-feature-icon-bottom-spacing: 1rem;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  
+
   > li {
     // padding-left: 85px;
     padding-left: 65px;
@@ -325,7 +673,6 @@ $home-feature-icon-bottom-spacing: 1rem;
     }
 
     &:not(:last-of-type) {
-
       // the vertical line that connects the step numbers
       &:after {
         position: absolute;
@@ -354,20 +701,20 @@ $home-feature-icon-bottom-spacing: 1rem;
   text-align: center;
 
   h4 {
-    font-size: 0.875rem;
     text-transform: uppercase;
     color: $color-4;
+    // font-size: 0.875rem;
+    font-size: 1.1875rem;
     margin-bottom: 2.188rem;
   }
 
   // individual diagram images
 
-  // @todo 
+  // @todo
   // these may become one large image so that
   // they can be shared easily as one encompassing diagram
 
   [class*=".content__before-after-diagram"] {
-
     img {
       width: 100%;
       max-width: 29.563rem;
@@ -380,7 +727,6 @@ $home-feature-icon-bottom-spacing: 1rem;
 
 @media (max-width: $MQMobileNarrow) {
   .page-masthead__actions {
-
     .btn {
       display: block;
 
@@ -388,6 +734,10 @@ $home-feature-icon-bottom-spacing: 1rem;
         margin: 0 0 1rem 0;
       }
     }
+  }
+
+  #page-masthead-waves-wrap {
+    display: none;
   }
 }
 
@@ -399,8 +749,13 @@ $home-feature-icon-bottom-spacing: 1rem;
 }
 
 @media (min-width: $MQLarge) {
-  .steps-items__content {
+  #page-masthead-waves {
+    transform:
+      translateX(15vw)
+      translateY(-200px);
+  }
 
+  .steps-items__content {
     > li {
       display: flex;
       align-items: center;
